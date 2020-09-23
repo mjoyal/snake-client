@@ -15,7 +15,6 @@ const connect = function() {
     //   conn.write("Move: up");
     // }, 500);
   });
-
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
   return conn;
