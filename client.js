@@ -11,12 +11,16 @@ const connect = function() {
   conn.on('connect', () => {
     console.log('Connected');
     conn.write("Name: MAK");
+    // setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 500);
   });
 
   // interpret incoming data as text
   conn.setEncoding('utf8'); 
   return conn;
 }
+
 
 module.exports = {
   connect
