@@ -1,4 +1,5 @@
-const { connect } = require("./client");
+
+const {ENCODE} = require('./constants');
 
 let connection; 
 
@@ -13,6 +14,12 @@ const handleUserInput = function (key) {
     connection.write('Move: left'); 
   } else if (key === 'd') {
     connection.write('Move: right'); 
+  } else if (key === '1') {
+    connection.write("Say: Eat my dust");
+  } else if (key === '2') {
+    connection.write("Say: Watch out");
+  } else if (key === '3') {
+    connection.write("Say: Im a snek");
   }
 }; 
 
@@ -20,7 +27,7 @@ const setupInput = function (conn) {
   connection = conn; 
   const stdin = process.stdin; 
   stdin.setRawMode(true); 
-  stdin.setEncoding('utf8'); 
+  stdin.setEncoding(ENCODE); 
   stdin.resume(); 
   stdin.on('data', handleUserInput); 
   return stdin; 
